@@ -1,15 +1,23 @@
-import { Text, View } from "react-native";
+import { useAuth } from '@/contexts/auth';
+import { Redirect } from 'expo-router';
+import { Button, View } from 'react-native';
 
 export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
-  );
+    const { isLoggedIn, logout } = useAuth();
+
+    if (!isLoggedIn) {
+        return <Redirect href="/login" />;
+    }
+
+    return (
+        <View
+            style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <Button onPress={() => logout()} title="Logout" />
+        </View>
+    );
 }

@@ -1,9 +1,9 @@
 import { useAuth } from '@/contexts/auth';
 import { Redirect } from 'expo-router';
-import { Text, View } from 'react-native';
+import { Button, View } from 'react-native';
 
 export default function Index() {
-    const { isLoggedIn } = useAuth();
+    const { isLoggedIn, login } = useAuth();
 
     if (isLoggedIn) {
         return <Redirect href="/" />;
@@ -17,7 +17,7 @@ export default function Index() {
                 alignItems: 'center',
             }}
         >
-            <Text>Edit app/index.tsx to edit this screen.</Text>
+            <Button onPress={() => login()} title="Logar" />
         </View>
     );
 }
