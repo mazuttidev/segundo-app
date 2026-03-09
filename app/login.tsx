@@ -3,7 +3,7 @@ import { Redirect } from 'expo-router';
 import { Text, View } from 'react-native';
 
 export default function Index() {
-    const { isLoggedIn } = useAuth(); // Simulando o estado de autenticação
+    const { isLoggedIn } = useAuth();
 
     if (isLoggedIn) {
         return <Redirect href="/" />;

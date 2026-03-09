@@ -2,7 +2,7 @@ import { useAuth } from '@/contexts/auth';
 import { Redirect, Stack } from 'expo-router';
 
 export default function RootLayout() {
-    const isLoggedIn = useAuth(); // Simulando o estado de autenticação
+    const isLoggedIn = useAuth();
 
     console.log(isLoggedIn);
 
